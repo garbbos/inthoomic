@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Generate Invoices to PDF - Home Page Thoomic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="libs/estilo.css">
+    <script type="text/javascript" src="libs/app.js" defer></script>
+    <script type="text/javascript" src="libs/OpenDB.js" defer></script>
+    <script type="application/javascript" src="libs/FileSaver.min.js" defer></script>
+    <script type="text/javascript" src="libs/jspdf.js" defer></script>
+    <script src="libs/jspdf.plugin.standard_fonts_metrics.js" defer></script>
+    <script type="text/javascript" src="libs/MyPdf.js" defer></script>
+    <link rel="icon" type="image/png" href="img/favicon.ico">
+</head>
+<body>
+    <div class="header datos colordiv">
+        <a href="#" class="colordiv">
+            <svg viewBox="0 0 90 96" height="48" width="50" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <g stroke="#474747" stroke-width="3" fill="#ffdf4a">
+                    <circle cx="50" cy="50" r="41"/>
+                    <circle cx="50" cy="70" r="20"/>
+                    <circle cx="50" cy="60" r="8"/>
+                    <path d="M35 70 C 40 80, 60 80, 65 70" fill="none"/>
+                    <line x1="54" y1="40" x2="75" y2="45"/>
+                    <line x1="40" y1="40" x2="45" y2="40"/>
+                    <path d="M85 5 C 45 5, 40 55, 95 35"/>
+                    <line x1="85" y1="5" x2="95" y2="35"/>
+                    <path d="M10 20 C 15 70, 50 65, 40 5"/>
+                    <line x1="10" y1="20" x2="40" y2="5"/>
+                </g>
+            </svg>
+        </a>
+
+        <h1 class="texthead">
+            Thoomic
+        </h1>
+        <div id="btnnew" class="btn datos color">
+            <a href="#" class="">
+                <img id="plus" class="" src="img/plus.svg" alt="Button new client">
+            </a>
+        </div>
+
+    </div>
+
+    <div class="barra colorback">
+        <div class="search">
+            <form class="search" action="index.html" method="post">
+                <input type="search" name="search" value="" placeholder="Search..." autofocus class="datos">
+            </form>
+        </div>
+        <div class="date">
+            <span id="totalcli">Clients:&nbsp;</span><span id="totaldb" class="dbtitle">0</span>
+            <span id="fecha" class="dbtitle">15/12/2016</span>
+        </div>
+    </div>
+    <div class="tabla">
+        <div class="setupdiv">
+            <div id="setup" class="pulsador colorback datos">
+                <div id="massetup" class="masdiv">
+                    <p id="moresetup" class="mas">+</p>
+                </div>
+                <p class="text">Add info about the issuer invoice</p>
+            </div>
+        </div>
+        <div class="setupdiv">
+            <div id="client" class="pulsador colorback datos">
+                <div id="masclient" class="masdiv">
+                    <p id="moreclient" class="mas">+</p>
+                </div>
+                <p class="text">Adds a new customer to the Thoomic database</p>
+            </div>
+        </div>
+    </div>
+    <div id="marcobills" class="marcobills datos">
+
+
+    </div>
+
+    <div id="popup" class="popup datos colorback">
+        <div class="barra colordiv">
+            <span id="title" class="title">About...</span><a href="#">&times;</a>
+        </div>
+        <div class="body">
+            <p id="comment" class="text">Comment</p>
+            <div class="botondiv">
+                <a href="#" class="datos btn close">Close</a>
+            </div>
+
+        </div>
+    </div>
+    <div id="newcli" class="carta datos">
+        <div id="barra" class="barra colordiv">
+            <a href="#" id="saveForm" class="title datos color">New Client</a><a href="#" id="closecli" class="close">&times;</a>
+        </div>
+        <div id="formcli" class="colorback campos">
+            <form id="formseller" class="formseller">
+                <input type="text" id="name" name="name" value="" placeholder="Name" class="datos">
+                <input type="text" id="ref" name="ref" value="" size="10" placeholder="Reference" class="datos">
+                <input type="text" id="phone" name="phone" value="" size="14" placeholder="Phone" class="datos">
+                <input type="text" id="email" name="email" value="" placeholder="Email" class="datos">
+                <input type="text" id="address" name="address" value="" placeholder="Address" class="datos">
+                <input type="text" id="postal" name="postal" value="" size="9" placeholder="Postal" class="datos">
+                <input type="text" id="city" name="city" value="" placeholder="City" class="datos">
+                <input type="text" id="country" name="country" value="" placeholder="Country" class="datos">
+                <input type="text" id="others" name="new" value="" placeholder="Others..." class="datos">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
