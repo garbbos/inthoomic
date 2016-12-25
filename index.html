@@ -73,8 +73,22 @@
             </div>
         </div>
     </div>
-    <div id="marcobills" class="marcobills datos">
+    <div id="marcobills" class="marcobills">
+        <div class="datos">
+            <div class="items">
+                <a href="#" class="btn datos">No. Invoice: <span id="nobill"></span></a>
+            </div>
 
+            <div class="datos parrafo colorback">
+                <span class="items">Description</span>
+                <span class="items">Qty.</span>
+                <span class="items">Price</span>
+                <span class="items">Total</span>
+            </div>
+            <div class="bodybill">
+                <img src="img/thoomic.svg" alt="Logo Thoomic">
+            </div>
+        </div>
 
     </div>
 
@@ -90,21 +104,29 @@
 
         </div>
     </div>
+    <div class="footer">
+        <a href="#"><p>&copy;Thoomic.com</p></a>
+    </div>
+
+    <div id="status" class="status datos">
+        <p id="msg" class="msg"></p>
+    </div>
+
     <div id="newcli" class="carta datos">
         <div id="barra" class="barra colordiv">
             <a href="#" id="saveForm" class="title datos color">New Client</a><a href="#" id="closecli" class="close">&times;</a>
         </div>
         <div id="formcli" class="colorback campos">
-            <form id="formseller" class="formseller">
-                <input type="text" id="name" name="name" value="" placeholder="Name" class="datos">
-                <input type="text" id="ref" name="ref" value="" size="10" placeholder="Reference" class="datos">
-                <input type="text" id="phone" name="phone" value="" size="14" placeholder="Phone" class="datos">
-                <input type="text" id="email" name="email" value="" placeholder="Email" class="datos">
-                <input type="text" id="address" name="address" value="" placeholder="Address" class="datos">
-                <input type="text" id="postal" name="postal" value="" size="9" placeholder="Postal" class="datos">
-                <input type="text" id="city" name="city" value="" placeholder="City" class="datos">
-                <input type="text" id="country" name="country" value="" placeholder="Country" class="datos">
-                <input type="text" id="others" name="new" value="" placeholder="Others..." class="datos">
+            <form id="formnew" class="formseller">
+                <input type="text" name="name" value="" placeholder="Name" class="datos">
+                <input type="text" name="cif" value="" size="10" placeholder="Reference" class="datos">
+                <input type="text" name="phone" value="" size="14" placeholder="Phone" class="datos">
+                <input type="text" name="email" value="" placeholder="Email" class="datos">
+                <input type="text" name="address" value="" placeholder="Address" class="datos">
+                <input type="text" name="postal" value="" size="9" placeholder="Postal" class="datos">
+                <input type="text" name="city" value="" placeholder="City" class="datos">
+                <input type="text" name="country" value="" placeholder="Country" class="datos">
+                <input type="text" name="new" value="" placeholder="Others..." class="datos">
             </form>
         </div>
     </div>

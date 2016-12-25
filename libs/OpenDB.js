@@ -13,8 +13,8 @@ var openDB = (function () {
 						callback(cursor.value);
 						cursor['continue']();
 					} else {
-						callback("OpenDB: No more data in database.");
-						return;
+						console.log("OpenDB: Data is ended. ");
+						return false;
 					}
 				};
 				res.onerror = function (e) {
@@ -130,6 +130,7 @@ var openDB = (function () {
 		var db, request, transaction, store;
 
 		try {
+			console.log("OpenDB: Running...");
 			request = indexedDB.open(cons.NAME, cons.VERSION);
 			request.onerror = function (e) {
 				window.console.log("OpenDB: open... request.onerror " + e.message);

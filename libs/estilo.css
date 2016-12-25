@@ -15,9 +15,11 @@ a{
     text-decoration: none;
 }
 input{
+    font-weight: bolder;
     border-radius: 4px;
     box-shadow: 2px 2px 1px #acacac;
     height: 2em;
+    padding: .2em;
 }
 h1{
     font-size: 1.3em;
@@ -36,7 +38,7 @@ input{
     right: 20%;
     bottom: -100%;
     transition: bottom .5s ease;
-    width: 60%;
+    width: 50%;
 }
 .header{
     display: flex;
@@ -66,6 +68,18 @@ input{
 .colorback{
     background: #efefef;
     color: inherit;
+}
+.parrafo{
+    display: flex;
+}
+.items{
+    font-size: .8em;
+    padding: .2em .2em;
+    flex: 3 1 auto;
+}
+.bodybill{
+    padding: 2em;
+    text-align: center;
 }
 .btn{
     background: #ffdf4a;
@@ -137,24 +151,13 @@ input{
     padding: .2em;
     text-align: left;
 }
-.bills{
-    width: 100%;
-}
+
 .marcobills{
     display: block;
     margin: auto;
     width: 96%;
 }
 
-.tablaconcept{
-    display: flex;
-}
-.tablaitem{
-    flex: 2 1 auto;
-    font-size: .8em;
-    font-weight: lighter;
-    margin-left: .6em;
-}
 .search{
     vertical-align: bottom;
 }
@@ -177,12 +180,18 @@ input{
 .colordiv{
     background: linear-gradient(#ffa500, #ffdf4a);
 }
-
+.footer{
+    font-size: .8em;
+    text-align: center;
+}
 .status {
+    background: #262626;
+    color: #efefef;
     bottom: 4%;
     font-size: small;
     left: 20%;
     opacity: 0;
+    transition: opacity .3s ease;
     position: fixed;
     width: 60%;
     z-index: 2;
