@@ -15,28 +15,28 @@ a{
     text-decoration: none;
 }
 input{
-    font-weight: bolder;
     border-radius: 4px;
     box-shadow: 2px 2px 1px #acacac;
+    font-size: 1em;
+    font-weight: bolder;
     height: 2em;
-    padding: .2em;
+    margin: .3em;
 }
-h1{
-    font-size: 1.3em;
-    font-weight: bold;
-    font-stretch: condensed;
+
+.in{
+    padding: 0 .2em;
+    width: 12%;
 }
+
 div{
     margin: 0;
     padding: 0;
 }
-input{
-    margin: .2em;
-}
+
 .carta{
+    bottom: -100%;
     position: fixed;
     right: 20%;
-    bottom: -100%;
     transition: bottom .5s ease;
     width: 50%;
 }
@@ -47,9 +47,9 @@ input{
     width: 100%;
 }
 .barra{
-    font-weight: bold;
-    display: flex;
     border-bottom: 1px solid #979797;
+    display: flex;
+    font-weight: bold;
     line-height: 28px;
     padding: .1em;
     vertical-align: bottom;
@@ -62,45 +62,40 @@ input{
     flex: 4 1 auto;
     padding: 0 .4em;
 }
-.botondiv{
-    text-align: right;
-}
+
 .colorback{
     background: #efefef;
     color: inherit;
 }
-.parrafo{
-    display: flex;
-}
+
 .items{
-    font-size: .8em;
-    padding: .2em .2em;
-    flex: 3 1 auto;
+    flex: 2 1 auto;
+    font-size: 1em;
+    font-stretch: extra-expanded;
+    padding: .1em .1em;
+    width: 20%;
 }
 .bodybill{
-    padding: 2em;
+    display: flex;
     text-align: center;
 }
 .btn{
     background: #ffdf4a;
     box-shadow: 1px 1px 2px #afafaf;
     color: inherit;
-    font-size: .9em;
     font-weight: bold;
-    height: 32px;
-    text-align: center;
-    line-height: 34px;
-    padding: .2em;
     margin: .2em;
-    width: 32px;
+    padding: .2em;
+    text-align: center;
 }
 .btn:hover, btn:focus{
     background: linear-gradient(#ffa500, #ffdf4a);
 }
+
 .popup{
-    position: fixed;
     bottom: -100%;
     left: 20%;
+    position: fixed;
     transition: bottom .5s ease;
     width: 60%;
 }
@@ -112,12 +107,16 @@ input{
     flex: 3 1 auto;
 }
 .texthead{
-    padding: .2em;
     flex: 5 1 auto;
+    font-size: 1.4em;
+    font-stretch: condensed;
+    font-weight: bold;
+    padding: .2em;
     vertical-align: bottom;
 }
 .tabla{
     display: flex;
+    text-align: center;
 }
 .setupdiv{
     flex: 2 1 auto;
@@ -128,26 +127,26 @@ input{
     background: linear-gradient(#ffa500, #ffdf4a);
 }
 .masdiv{
-    font-size: 2em;
     border: dashed 1px #adadad;
-    width: 60px;
+    font-size: 2em;
     margin: .4em;
+    padding: 0 .8em;
 }
 .masdiv:hover, .masdiv:focus{
     cursor: pointer;
 }
 .pulsador{
-    display: flex;
     box-shadow: 1px 1px 2px #afafaf;
-    margin: auto;
+    display: flex;
     font-size: .8em;
     height: 100px;
+    margin: auto;
     text-align: center;
 }
 .text{
-    font-weight: lighter;
+    font-size: 1.4em;
     font-stretch: expanded;
-    font-size: .9em;
+    font-weight: lighter;
     padding: .2em;
     text-align: left;
 }
@@ -157,7 +156,9 @@ input{
     margin: auto;
     width: 96%;
 }
-
+.cuerpo{
+    min-height: 25%;
+}
 .search{
     vertical-align: bottom;
 }
@@ -174,6 +175,19 @@ input{
     border: 1px solid #565656;
     word-wrap: break-word;
 }
+.intro{
+    padding: 0 .6em;
+}
+.intro:hover, .intro:focus{
+     background: linear-gradient(#ffa500, #ffdf4a);
+    cursor: pointer;
+}
+.resultado{
+    font-family:sans-serif;
+    font-stretch: extra-expanded;
+    font-size: 5em;
+    font-weight: bolder;
+}
 .color{
     background: linear-gradient(#ff8c00, #ffa500);
 }
@@ -186,16 +200,16 @@ input{
 }
 .status {
     background: #262626;
-    color: #efefef;
     bottom: 4%;
+    color: #efefef;
     font-size: small;
     left: 20%;
     opacity: 0;
-    transition: opacity .3s ease;
     position: fixed;
+    text-align: center;
+    transition: opacity .3s ease;
     width: 60%;
     z-index: 2;
-    text-align: center;
 }
 .copy{
     font-size: .6em;
