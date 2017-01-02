@@ -1,5 +1,8 @@
-body{
-    font-family: impact,monospace;
+*{
+    box-sizing: border-box;
+}
+    body{
+    font-family: verdana,impact,sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -15,17 +18,17 @@ a{
     text-decoration: none;
 }
 input{
+    border: 1px solid #696969;
     border-radius: 4px;
-    box-shadow: 2px 2px 1px #acacac;
-    font-size: 1em;
-    font-weight: bolder;
+    box-shadow: 1px 1px 1px #979797;
+    font-size: .9em;
     height: 2em;
     margin: .3em;
+    padding: 0 0 0 .3em;
 }
 
 .in{
-    padding: 0 .2em;
-    width: 12%;
+    width: 16%;
 }
 
 div{
@@ -41,6 +44,7 @@ div{
     width: 50%;
 }
 .header{
+    border-bottom: 1px solid #979797;
     display: flex;
     line-height: 10px;
     vertical-align: bottom;
@@ -50,9 +54,8 @@ div{
     border-bottom: 1px solid #979797;
     display: flex;
     font-weight: bold;
-    line-height: 28px;
     padding: .1em;
-    vertical-align: bottom;
+
 }
 .close{
     font-size: 1.4em;
@@ -67,16 +70,21 @@ div{
     background: #efefef;
     color: inherit;
 }
+.introform{
+    text-align: center;
+    width: 100%;
+}
 
 .items{
-    flex: 2 1 auto;
-    font-size: 1em;
-    font-stretch: extra-expanded;
-    padding: .1em .1em;
-    width: 20%;
+    float: left;
+    padding: .2em .4em;
+    text-align: center;
+    width: 25%;
+    vertical-align: baseline;
 }
 .bodybill{
     display: flex;
+    margin: .6em 0;
     text-align: center;
 }
 .btn{
@@ -104,8 +112,25 @@ div{
     vertical-align: bottom;
 }
 .search{
+    background-image: url(../img/search.svg);
+    background-repeat: no-repeat;
+    background-position: 1px 3px;
     flex: 3 1 auto;
+    padding-left: 34px;
+    transition: width .6s ease;
+    width: 14%;
 }
+.search:hover, .search:focus{
+    width: 70%;
+}
+.subtotal{
+    font-size: 1.6em;
+    text-align: right;
+}
+.borde{
+    border: 1px solid #9c9c9c;
+}
+
 .texthead{
     flex: 5 1 auto;
     font-size: 1.4em;
@@ -116,7 +141,6 @@ div{
 }
 .tabla{
     display: flex;
-    text-align: center;
 }
 .setupdiv{
     flex: 2 1 auto;
@@ -144,42 +168,60 @@ div{
     text-align: center;
 }
 .text{
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-stretch: expanded;
     font-weight: lighter;
     padding: .2em;
     text-align: left;
 }
-
+.margen{
+    padding: .6em .4em 0 .2em;
+}
+.italica{
+    background: transparent;
+    color: #afafaf;
+    font-style: italic;
+    padding-top: .2em;
+}
 .marcobills{
     display: block;
+    height: 360px;
     margin: auto;
     width: 96%;
 }
-.cuerpo{
-    min-height: 25%;
-}
-.search{
-    vertical-align: bottom;
-}
+
 .date{
+    flex: 1 1 auto;
     font-size: .8em;
+    padding-top: .6em;
     margin-right: .3em;
     text-align: right;
 }
-.fecha{
-    font-size: .8em;
-    line-height: 8px;
+.botonbarra{
+    flex: 1 1 auto;
+    margin: .2em .2em 0 0;
+    text-align: right;
+}
+.botonbarra:hover, .botonbarra:focus{
+    background: transparent;
+    color: red;
 }
 .datos{
     border: 1px solid #565656;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px #acacac;
+    transition: box-shadow .2s ease;
     word-wrap: break-word;
 }
-.intro{
-    padding: 0 .6em;
+.datos:hover, .datos:focus{
+    box-shadow: 2px 2px 4px #acacac;
 }
+.intro{
+    padding: 0 1em;
+}
+
 .intro:hover, .intro:focus{
-     background: linear-gradient(#ffa500, #ffdf4a);
+    background: linear-gradient(#ffa500, #ffdf4a);
     cursor: pointer;
 }
 .resultado{

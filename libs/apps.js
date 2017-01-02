@@ -1,9 +1,19 @@
 window.addEventListener('DOMContentLoaded', function() {
     'use strict';
-    var formulario = document.getElementById('introform'),
+    var limite,
+    veces = 0,
+    vectorbill = {},
+    newbill = [],
+    formulario = document.getElementById('introform'),
+    currency = document.getElementById('currency'),
+    nobill = document.getElementById('nobill'),
+    timestamp = document.getElementById('timestamp'),
+    hora = document.getElementById('hora'),
+    description = document.getElementById('description'),
     qty = document.getElementById('quantity'),
     price = document.getElementById('price'),
     total = document.getElementById('total'),
+    subtotal = document.getElementById('subtotal'),
     status = document.getElementById('status'),
 
     texto = function (mn) {
@@ -15,34 +25,109 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     },
 
-    loadInput = function (item, data) {
-        if (item.innerHTML.length < 7) {
-            item.innerHTML = "";
-            item.innerHTML += data.value ;
-        } else {
-            data.style.background = "orange";
-            data.value = item.innerHTML;
+    borrarForm = function () {
+        formulario.cantidad.value = "";
+        formulario.cantidad.style.background = "#ffffff";
+        formulario.precio.value = "";
+        formulario.precio.style.background = "#ffffff";
+        formulario.descripcion.value = "";
+        formulario.descripcion.focus();
+    },
+
+    loadInput = function (myinput, value) {
+        if (myinput.value > value) {
+            myinput.style.background = "orange";
             texto("Exceeded maximum value");
+            myinput.value = limite;
+        } else {
+            limite = myinput.value;
         }
     },
 
     totalConcept = function () {
+        function addRow() {
+            var mytotal, mydiv, spandesc, spantime, spanqty, spanprice, spantotal, cuerpo = document.getElementById('cuerpo');
+
+            veces += 1;
+            if (veces < 9) {
+                mydiv = document.createElement("div");
+                mydiv.setAttribute("class", "bodybill");
+                spantime = document.createElement("span");
+                spantime.setAttribute("class", "italica");
+                spantime.innerHTML = hora.innerHTML;
+                mydiv.appendChild(spantime);
+
+                spandesc = document.createElement("span");
+                spandesc.setAttribute("class", "items");
+                spandesc.innerHTML = formulario.descripcion.value;
+                mydiv.appendChild(spandesc);
+                spanqty = document.createElement("span");
+                spanqty.setAttribute("class", "items");
+                spanqty.innerHTML = formulario.cantidad.value;
+                mydiv.appendChild(spanqty);
+                spanprice = document.createElement("span");
+                spanprice.setAttribute("class", "items");
+                spanprice.innerHTML = formulario.precio.value;
+                mydiv.appendChild(spanprice);
+                spantotal = document.createElement("span");
+                spantotal.setAttribute("class", "items");
+                spantotal.innerHTML =formulario.precio.value * formulario.cantidad.value;
+                mydiv.appendChild(spantotal);
+
+                cuerpo.appendChild(mydiv);
+
+                if (subtotal.innerHTML === "0") {
+                    subtotal.innerHTML = spantotal.innerHTML;
+                } else {
+                    subtotal.innerHTML = Number(subtotal.innerHTML) + Number(spantotal.innerHTML);
+                }
+                borrarForm();
+            } else {
+                texto("Invoice complete, add another sheet");
+            }
+        }
+
         if (formulario.cantidad.value && formulario.precio.value) {
-            total.innerHTML = formulario.cantidad.value * formulario.precio.value;
+            addRow();
         } else {
             texto("Cantidad " + (formulario.cantidad.value || 0) + ", Precio " + (formulario.precio.value || 0));
         }
     },
 
-    getNow  = function () {
-        var date = new Date(), day = date.getDate(), month = date.getMonth(), year = date.getFullYear(), fecha = document.getElementById('fecha');
+    totalizarBill = function () {
+        console.log("Totalizar function...");
+        if (formulario.cantidad.value && formulario.precio.value) {
+            localStorage.setItem('nobill', (nobill.innerHTML || "0000001"));
+        }
+    },
 
+    getNow  = function () {
+        var d, m, s, date = new Date(), day = date.getDate(), month = (date.getMonth() + 1), year = date.getFullYear(), fecha = document.getElementById('fecha');
+
+        function formatea(data) {
+            if (data || "00") {
+                if (data < 10) {
+                    return ("0" + data);
+                } else {
+                    return data;
+                }
+            }
+        }
+
+        function setHora() {
+            date = new Date();
+            d = formatea(date.getHours());
+            m = formatea(date.getMinutes());
+            s = formatea(date.getSeconds());
+
+            hora.innerHTML = d + ":" + date.getMinutes() + ":" + s;
+        }
+
+        setInterval(function () { setHora(); }, 1000);
         fecha.innerHTML = " " + day + "/" + month + "/" + year + " ";
     };
 
     console.log("Thoomic... DOMContentLoaded");
-
-
 
     document.onclick = function (ev) {
         switch (ev.target) {
@@ -50,13 +135,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 ev.stopPropagation();
                 saveClient();
             break;
-        case plus:
-                newClient(ev.target);
-            break;
         case closecli:
                 closeClient();
             break;
-
 
         case 'moresetup':
                 newClient(ev.target);
@@ -74,13 +155,12 @@ window.addEventListener('DOMContentLoaded', function() {
     };
 
     formulario.oninput = function (ev) {
-        console.log("Event " + ev.target.name + " " + qty.innerHTML);
         switch (ev.target.name) {
             case 'cantidad':
-                loadInput(qty, ev.target);
+                loadInput(formulario.cantidad, 9999);
                 break;
             case 'precio':
-                loadInput(price, ev.target);
+                loadInput(formulario.precio, 9999999);
                 break;
         }
     };
@@ -91,6 +171,9 @@ window.addEventListener('DOMContentLoaded', function() {
         switch (ev.target.name) {
             case 'button':
                 totalConcept();
+                break;
+            case 'totalizar':
+                totalizarBill();
                 break;
             default:
 
@@ -116,6 +199,16 @@ window.addEventListener('DOMContentLoaded', function() {
 
         }
     });
+
+
+    currency.addEventListener('change', function () {
+        localStorage.setItem('currency', currency.selectedIndex);
+        texto("Currency " + currency.options[currency.selectedIndex].value);
+    });
+
+    currency.selectedIndex = localStorage.getItem('currency');
+
+    nobill.innerHTML = localStorage.getItem('nobill');
 
     getNow();
 });

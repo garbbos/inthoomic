@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 <body>
-    <div class="header datos colordiv">
+    <div class="header colordiv">
         <a href="#" class="colordiv">
             <svg viewbox="0 0 90 96" height="48" width="50" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <g stroke="#474747" stroke-width="3" fill="#ffdf4a">
@@ -36,28 +36,28 @@
         <h1 class="texthead">
             Thoomic
         </h1>
-
-        <div id="btnnew" class="btn datos color">
-            <a href="#" class="">
-                <img id="plus" class="" src="img/plus.svg" alt="Button new client">
-            </a>
+        <div class="date">
+            <span>Invoice ID:&nbsp;</span>
+            <span id="nobill"></span>
+            <span>&nbsp;&nbsp;&nbsp;Customers:&nbsp;</span>
+            <span id="totalcli"></span><span id="totaldb" class="dbtitle">0</span>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span id="fecha" class="dbtitle">&nbsp;15/12/2016</span>
         </div>
     </div>
 
     <div class="barra colorback">
-        <div class="search">
-            <form class="search" action="index.html" method="post">
-                <input type="search" name="search" value="" placeholder="Search..." autofocus class="datos">
+        <div class="">
+            <form class="" action="index.html" method="post">
+                <input type="search" class="search" name="search" value="" placeholder="Search..." autofocus>
             </form>
         </div>
-        <div class="date">
-            <span id="totalcli">Clients:&nbsp;</span><span id="totaldb" class="dbtitle">0</span>
-            <span id="fecha" class="dbtitle">15/12/2016</span>
+        <div id="btnnew" class="botonbarra">
+            <a href="#" class="">ToPDF</a>
+            <a href="#">&rang;</a>
         </div>
     </div>
-    <div class="">
-        <p class="">ID: 000000<span id="nobill"></span></p>
-    </div>
+
     <div class="tabla">
 
         <div class="setupdiv">
@@ -65,39 +65,55 @@
                 <div id="masclient" class="masdiv">
                     <p id="moreclient" class="mas">+</p>
                 </div>
-                <p class="text">Adds a new customer to the Thoomic database</p>
+                <p class="text">Adds a new customer</p>
             </div>
         </div>
     </div>
-    <div id="marcobills" class="marcobills">
-        <div class="datos">
+
+    <div class="bodybill">
+        <span id="desc" class="items"></span>
+        <span id="qty" class="text items">Total to invoice:</span>
+        <span id="subtotal" class="items borde subtotal colorback">0</span>
+        <select class="" id="currency" name="currency">
+            <option value="euro">&euro;</option>
+            <option value="dollar">&dollar;</option>
+            <option value="libra">&pound;</option>
+            <option value="yen">&yen;</option>
+        </select>
+    </div>
+
+    <div id="marcobills" class="marcobills datos">
+        <div>
             <div class="tabla">
+                <div id="btnpage" class="margen">
+                    <a href="#" class="">
+                        1/1
+                    </a>
+
+                </div>
                 <form id="introform" method="get" onsubmit="return validar(this)" class="introform">
-                    <input type="text" name="description" class="" placeholder="Description...">
+                    <input type="text" name="descripcion" class="" placeholder="Description...">
                     <input type="number" name="cantidad" placeholder="Quantity..." class="in" required>
                     <input type="number" name="precio" placeholder="Price..." class="in" required>
-                    <input type="button" name="button" class="intro datos btn" value="&crarr;">
+                    <input type="button" name="button" class="intro datos btn" value="&#43;">
+                    <input type="button" name="totalizar" class="intro color btn datos" value="&crarr;">
                 </form>
-
+                <span id="hora" class="margen items">00:00:00</span>
             </div>
 
-            <div class="datos tabla colorback">
+            <div class="borde tabla colorback">
+                <span class="italica">Timestamp</span>
                 <span class="items">Description</span>
                 <span class="items">Quantity</span>
                 <span class="items">Price</span>
                 <span class="items btn">Total</span>
-
             </div>
-            <div class="cuerpo">
-                <div id="bodybill" class="bodybill">
-                    <span id="description" class="items">...</span>
-                    <span id="quantity" class="items">0</span>
-                    <span id="price" class="items">0</span>
-                    <span id="total" class="items">0</span>
+            <div id="cuerpo" class="cuerpo">
 
-                </div>
+
             </div>
         </div>
+
     </div>
 
     <div id="popup" class="popup datos colorback">
@@ -128,8 +144,8 @@
             <form id="formnew" method="get" onsubmit="return saveClient(this)" class="formseller">
                 <input type="text" name="name" value="" placeholder="Name" class="in datos">
                 <input type="text" name="cif" value="" size="10" placeholder="Reference" class="in datos">
-                <input type="text" name="phone" value="" size="14" placeholder="Phone" class="in datos">
-                <input type="text" name="email" value="" placeholder="Email" class="in datos" pattern="^[9|8|7|6]\d{8}$">
+                <input type="tel" name="phone" value="" size="14" placeholder="Phone" class="in datos">
+                <input type="email" name="email" value="" placeholder="Email" class="in datos" pattern="^[9|8|7|6]\d{8}$">
                 <input type="text" name="address" value="" placeholder="Address" class="in datos">
                 <input type="text" name="postal" value="" size="9" placeholder="Postal" class="in datos">
                 <input type="text" name="city" value="" placeholder="City" class="in datos">
